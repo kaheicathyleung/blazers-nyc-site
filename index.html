@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blazers NYC — Find your flow.</title>
+
+  <!-- fonts: Poppins for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       Header
+       - Left: navigation
+       - Right: logo + name
+       - Slightly transparent dark background
+     ========================================================= -->
+  <header class="site-header">
+    <!-- Left: Navigation links -->
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#studios">Studios</a></li>
+        <li><a href="#shop">Merch</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right: Logo + Studio name  -->
+    <a class="brand-right" href="#home" aria-label="Blazers NYC Home">
+      <img src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/logo-placeholder.png" alt="" />
+      <span>Blazers NYC</span>
+    </a>
+  </header>
+
+  <main id="home">
+    <!-- =========================================================
+         HERO
+         - Background image fills the viewport width
+         - "Find your" is kept on one line, "flow." on the next
+       ========================================================= -->
+    <section class="hero hero-bg" aria-label="Hero">
+      <div class="hero-text">
+        <h1>
+          <span class="line-1">Find your</span><br />
+          <span class="line-2">flow.</span>
+        </h1>
+        <p>Get your groove on with Hip-Hop, find your rhythm in Jazz, express yourself in Contemporary, build your foundation with Ballet, and own the room in Heels—Blazers NYC offers classes for every style and level, right here in Brooklyn.</p>
+
+        <!-- Primary CTA (hero) — this remains auto-width -->
+        <a class="btn cta" href="#classes">Reserve your spot</a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT
+       ========================================================= -->
+    <section id="about" class="split" aria-labelledby="about-heading">
+      <figure class="split-media">
+        <img src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/vision.jpg" alt="Dancer in expressive pose">
+      </figure>
+      <div class="split-body">
+        <h2 id="about-heading">Who we are</h2>
+        <p>
+          At Blazers NYC, we’re passionate about creating a supportive and inspiring environment for dancers 
+          at all levels. Whether you’re a beginner looking to explore expressive movement or an advanced dancer 
+          ready to refine your technique, you’ll find your place here.
+        </p>
+        <a class="btn ghost" href="#about">About us</a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         WHAT WE OFFER
+         - 3 cards with:
+           1) consistent image height (cropped)
+           2) aligned titles / text / buttons
+       ========================================================= -->
+    <section class="highlights" aria-labelledby="offer-heading">
+      <h2 id="offer-heading">What we offer</h2>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <article id="classes" class="card">
+          <div class="media">
+            <img src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/classes.jpg" alt="Hip hop class in session">
+          </div>
+          <div class="card-body">
+            <h3>Classes</h3>
+            <p>Book Hip-Hop, Jazz, Contemporary, and Ballet — sessions for every level.</p>
+            <!-- Short, consistent CTA width -->
+            <a class="btn btn-card" href="#contact">Book a class</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article id="studios" class="card">
+          <div class="media">
+            <img src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/studios.jpg" alt="Dance studio room with mirrors">
+          </div>
+          <div class="card-body">
+            <h3>Studios</h3>
+            <p>Reserve practice rooms by the hour — mirrors, sound system, sprung floors.</p>
+            <!-- Short, consistent CTA width -->
+            <a class="btn btn-card" href="#contact">Rent a studio</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article id="shop" class="card">
+          <div class="media">
+            <img src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/merch.jpg" alt="Blazers NYC T-shirt and tote">
+          </div>
+          <div class="card-body">
+            <h3>Merch</h3>
+            <p>Rep Blazers NYC with tees, water bottles, and totes.</p>
+            <!-- Short, consistent CTA width -->
+            <a class="btn btn-card" href="#contact">Shop merch</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER / CONTACT (with red to pink gradient)
+     ========================================================= -->
+    <footer id="contact" class="site-footer">
+    <section class="contact">
+        <h2>Blazers NYC</h2>
+
+        <div class="cols">
+        <!-- Left column -->
+        <div class="col">
+            <div class="info-list">
+            <!-- Email (one line) -->
+            <div class="info-row">
+                <span class="label-inline">Email:</span>
+                <a class="value-link" href="mailto:hello@blazersnyc.com">hello@blazersnyc.com</a>
+            </div>
+
+            <!-- Instagram (icon + label + handle; both open login page) -->
+            <div class="info-row">
+                <img class="icon" src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/icon-instagram.png" alt="" aria-hidden="true">
+                <a class="label-inline" href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener">Instagram:</a>
+                <a class="value-link" href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener">@blazersnyc</a>
+            </div>
+
+            <!-- Facebook -->
+            <div class="info-row">
+                <img class="icon" src="https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/icon-facebook.png" alt="" aria-hidden="true">
+                <a class="label-inline" href="https://www.facebook.com/login/" target="_blank" rel="noopener">Facebook:</a>
+                <a class="value-link" href="https://www.facebook.com/login/" target="_blank" rel="noopener">blazersnyc</a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="col">
+            <div class="info-list">
+            <div class="info-row">
+                <span class="label-inline">Address:</span>
+                <span class="value-text">22 Nostrand Ave, Brooklyn, NY</span>
+            </div>
+            <div class="info-row">
+                <span class="label-inline">Phone:</span>
+                <a class="value-link" href="tel:+15551234567">(555) 123-4567</a>
+            </div>
+            <div class="info-row">
+                <span class="tiny">© 2025 Blazers NYC — All rights reserved</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    </footer>
+</body>
+</html>

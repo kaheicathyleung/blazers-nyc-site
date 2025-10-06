@@ -1,0 +1,299 @@
+/* =========================================================
+   THEME
+   ========================================================= */
+:root{
+  --bg: #0f0f12;
+  --panel: #16161b;
+  --text: #ececf1;
+  --muted: #b8b8c6;
+  --accent: #6a5cff;
+  --radius: 18px;
+
+  /* Footer gradient (red -> pink) */
+  --footer-top: #28070a;
+  --footer-mid: #7d0c1d;
+  --footer-bot: #ff2f8b;
+}
+
+/* Base reset + defaults */
+*{ box-sizing: border-box; }
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  line-height:1.6;
+}
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; text-decoration:none; }
+
+/* =========================================================
+   HEADER
+   - Slightly transparent background
+   - Nav on the left, logo & name on the right
+   ========================================================= */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding:10px clamp(18px, 3vw, 28px);
+  background: rgba(0,0,0,.72);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  backdrop-filter: saturate(1.15) blur(8px);
+}
+
+/* Left nav list */
+.site-nav ul{
+  display:flex; align-items:center; gap:34px;
+  list-style:none; margin:0; padding:0;
+  font-weight:700;
+  font-size: clamp(14px, 1.4vw, 18px);
+}
+.site-nav a{ opacity:.88; }
+.site-nav a:hover, .site-nav a.active{ opacity:1; }
+.site-nav a.active::after{
+  /* Tiny underline for the active link */
+  content:""; display:block; height:3px; border-radius:3px;
+  width:34px; margin-top:6px;
+  background: #d3d3de;
+}
+
+/* Right logo & name */
+.brand-right{
+  display:flex; align-items:center; gap:12px;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight:800; letter-spacing:.2px;
+  font-size: clamp(18px, 1.8vw, 24px);
+  padding:4px 8px;
+}
+.brand-right img{
+  /* Round mask for the logo */
+  width: clamp(42px, 2.8vw, 54px);
+  height: clamp(42px, 2.8vw, 54px);
+  border-radius:50%;
+  background:#19191f;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.06) inset;
+}
+
+/* =========================================================
+   BUTTONS
+   - .btn is the base style
+   - .cta is only for the call-to-action button
+   - .btn-card is the fixed-width used in 3 cards
+   ========================================================= */
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:999px;
+  background:var(--accent); color:#fff; font-weight:800;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.btn:hover{ transform:translateY(-1px); }
+.btn.cta{ box-shadow:0 10px 28px rgba(106,92,255,.35); }
+
+/* consistent card CTA width –
+   - fixed & centered text
+   - never overflows on small screens */
+.btn-card{
+  width: 190px;           
+  max-width: 100%;
+  text-align: center;
+}
+
+.btn.ghost{ background:transparent; border:1px solid var(--accent); color:var(--text); }
+
+/* =========================================================
+   HERO
+   - Large background image with a radial darkening on the left
+   ========================================================= */
+.hero-bg{
+  position:relative;
+  min-height: clamp(520px, 78vh, 820px);
+  display:flex; align-items:center;
+  background:url("https://raw.githubusercontent.com/kaheicathyleung/blazers-nyc-site/main/hero.jpg") center/cover no-repeat;
+  padding: clamp(24px, 6vw, 72px);
+}
+.hero-bg::after{
+  /* Subtle left-side vignette so text pops */
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(1200px 700px at 18% 60%,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.35) 40%,
+    rgba(0,0,0,.18) 64%,
+    rgba(0,0,0,.02) 100%);
+}
+.hero-text{ position:relative; z-index:1; max-width:60ch; }
+.hero-text h1{
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:800;
+  font-size: clamp(44px, 10vw, 120px);
+  line-height:1.02; margin:0 0 16px;
+}
+.hero-text .line-1{ white-space:nowrap; } /* "Find your" stays on first line */
+.hero-text .line-2{ white-space:nowrap; }
+.hero-text p{ color:var(--muted); max-width:60ch; }
+
+/* =========================================================
+   ABOUT (split layout)
+   ========================================================= */
+.split{
+  display:grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(16px, 4vw, 48px);
+  align-items:center;
+  min-height: clamp(420px, 58vh, 640px);
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 6vw, 72px);
+}
+.split-media{
+  height:100%; overflow:hidden; border-radius: var(--radius); background:#222;
+}
+.split-media img{ width:100%; height:100%; object-fit:cover; }
+.split-body h2{
+  font-family:Poppins, Inter, sans-serif;
+  font-size: clamp(32px, 5.5vw, 64px);
+  margin: 0 0 8px;
+}
+
+/* =========================================================
+   WHAT WE OFFER
+   - Grid of three equal-height cards
+   ========================================================= */
+.highlights{ max-width:1280px; margin: 8px auto 64px; padding: 0 clamp(20px, 3vw, 28px); }
+.highlights h2{
+  font-family:Poppins, Inter, sans-serif;
+  margin: 0 0 18px;
+  font-size: clamp(28px, 3.5vw, 44px);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 26px);
+  align-items: stretch;  /* all cards stretch to same column height */
+}
+.card{
+  background: var(--panel);
+  border: 1px solid #262632;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display:flex; flex-direction:column;
+  box-shadow: 0 1px 0 rgba(255,255,255,.02) inset;
+}
+
+/* Consistent media height; object-fit crops photos evenly */
+.card .media{
+  width:100%;
+  height: clamp(260px, 28vw, 340px);
+  background:#1d1d24;
+  overflow:hidden;
+}
+.card .media img{
+  width:100%; height:100%;
+  object-fit: cover;     
+  object-position: center;
+}
+
+/* Body grid = title | description | CTA */
+.card-body{
+  padding: 20px;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+}
+.card h3{
+  margin: 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(18px, 2.1vw, 26px);
+}
+.card p{
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1.6vw, 18px);
+}
+
+/* =========================================================
+   FOOTER — one-line items with aligned labels
+   ========================================================= */
+.site-footer{
+  margin-top:56px;
+  background: linear-gradient(180deg, var(--footer-top) 0%, var(--footer-mid) 35%, var(--footer-bot) 100%);
+  color:#ffe6ee;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.site-footer .contact{
+  max-width:1280px; margin:0 auto;
+  padding: 36px clamp(20px, 3vw, 28px) 44px;
+}
+.site-footer h2{
+  font-family:Poppins, Inter, sans-serif;
+  font-size: clamp(28px, 4vw, 52px);
+  margin:8px 0 18px;
+}
+
+.site-footer .cols{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items:start;
+}
+
+.info-list{
+  display:grid;
+  row-gap: 12px;                
+}
+
+/* One-line rows: icon + label + value */
+.info-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;                /* wraps on very small screens */
+  line-height:1.4;
+}
+
+/* Keep all labels aligned to the same width */
+.label-inline{
+  font-weight:700;
+  opacity:.9;
+  min-width: 110px;           
+}
+
+/* Value styles */
+.value-link{
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color:#ffe6ee;
+}
+.value-text{
+  opacity:.95;
+}
+
+/* Social icons before labels */
+.icon{
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  object-fit:contain;
+  display:inline-block;
+}
+
+.tiny{ opacity:.85; margin-top:4px; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1100px){
+  .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 760px){
+  .site-nav ul{ gap:18px; font-size:16px; }
+  .split{ grid-template-columns: 1fr; }
+  .cards{ grid-template-columns: 1fr; }
+  .hero-bg{ min-height: 62vh; }
+
+  /* Card CTAs full width on phones for easy tapping */
+  .btn-card{ width: 100%; }
+
+  /* Footer stacks; free the fixed label width */
+  .site-footer .cols{ grid-template-columns: 1fr; }
+  .label-inline{ min-width: auto; }
+}
